@@ -11,13 +11,13 @@ jobs:
     steps:
       - run:
           name: Install NodeJS & NPM
-          command: ssh $kennyb626@pokedex@$34.72.46.130 "sudo apt-get update && sudo apt-get install curl && curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash - && sudo apt-get install -y nodejs"
+          command: ssh $SSH_USER@$SSH_HOST "sudo apt-get update && sudo apt-get install curl && curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash - && sudo apt-get install -y nodejs"
       - run:
           name: Clone Repo & Install Application Dependencies
-          command: ssh $kennyb626@pokedex@$34.72.46.130 "git clone https://github.com/keenan218/Pokedex && cd ~/Pokedex && npm install"
+          command: ssh $SSH_USER@$SSH_HOST "git clone https://github.com/keenan218/Pokedex && cd ~/Pokedex && npm install"
       - run:
           name: Deploy Application
-          command: ssh $kennyb626@pokedex@$34.72.46.130 "cd ~/Pokedex && npm run serve"
+          command: ssh $SSH_HOST@$SSH_HOST "cd ~/Pokedex && npm run serve"
 workflows:
   version: 2.1
   test-and-deploy:
