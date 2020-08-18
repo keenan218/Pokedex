@@ -14,10 +14,10 @@ jobs:
           command: ssh $SSH_USER@$SSH_HOST "sudo apt-get update && sudo apt-get install curl && curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash - && sudo apt-get install -y nodejs"
       - run:
           name: Clone Repo & Install Application Dependencies
-          command: ssh $SSH_USER@$SSH_HOST "git clone https://gitlab.com/qacdevops/pokedex-example && cd ~/pokedex-example && npm install"
+          command: ssh $SSH_USER@$SSH_HOST "git clone https://github.com/keenan218/Pokedex && cd ~/Pokedex && npm install"
       - run:
           name: Deploy Application
-          command: ssh $SSH_HOST@$SSH_HOST "cd ~/pokedex-example && npm run serve"
+          command: ssh $SSH_HOST@$SSH_HOST "cd ~/Pokedex && npm run serve"
 workflows:
   version: 2.1
   test-and-deploy:
